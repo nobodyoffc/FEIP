@@ -12,7 +12,7 @@ TXid:
 # FEIP1V6_FreeProtocol(en-US)
 
 ## Contents
-[Introduction](#Introduction)
+[Introduction](#introduction)
 
 [General rules of FEIP type protocols](#general-rules-of-feip-type-protocols)
 
