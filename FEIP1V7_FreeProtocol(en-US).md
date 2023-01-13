@@ -1,16 +1,3 @@
-
-```
-FEIP1: FreeProtocol
-Version: 7
-Language: en-US
-Author: C_armX, Deisler-JJ_Sboy
-Status: draft
-Created date: 2022-02-01
-Update date：2022-12-30
-PID: ""
-Txid: 
-```
-
 # FEIP1V7_FreeProtocol(en-US)
 
 ## Contents
@@ -19,7 +6,7 @@ Txid:
 
 [General consensus of FEIP](#general-consensus-of-feip)
 
-[consensus of this protocol](#consensus-of-this-protocol)
+[Consensus of this protocol](#consensus-of-this-protocol)
 
 [Publish](#publish)
 
@@ -43,14 +30,15 @@ Version number: 7
 Description : Formulate the consensuses of freely publishing and managing protocols on the blockchain of freecash.
 Author: C_armX, Deisler-JJ_Sboy
 Language: en-US
-Previous version PID:""
+Created date: 2022-02-01
+Update date：2023-01-10
 ```
 
-## General consensuses of FEIP
+## General consensus of FEIP
 
-1. FEIP (Freecash Extensional Improvement Protocol) is a type of freecash protocol  which writes important information with OP_RETURN on the blockchain of freecash.
+1. FEIP type protocols write data of consensus in OP_RETURN for public witness.
 
-2. The SIGHASH flag of all transaction inputs is ‘ALL’ (value 0x01).
+2. The SIGHASH flag of all transaction inputs: ‘ALL’ (value 0x01).
 
 3. The max size of OP_RETURN : 4096 bytes.
 
@@ -58,8 +46,7 @@ Previous version PID:""
 
 5. Encoding : utf-8.
 
-
-## Main consensuses of this protocol
+## Consensus of this protocol
 
 1. This protocol is used to publish protocol information on Freecash blockchain. 
 
@@ -67,7 +54,7 @@ Previous version PID:""
 
 3. One can send a transaction to publish a protocol by writing data in the format given by [Publish](#publish) .
 
-4. The title of protocol published on chain taks following format: 
+4. The title of protocol published on chain is in following format: 
 
 `type + serial number + 'V' + version number +'_' + protocol name + '(' + language + ')'`
 
@@ -81,13 +68,17 @@ e.g: `FEIP3V4_CID(en-US)`
 
 8. One can't rate its own protocols.
 
-9. A stoped protocol still can be rated.
+9. Stopped  or closed protocols still can be rated.
 
 10. If the consensus of a new version is not compatible with the previous version, a new protocol should be released instead of a new version, and the old pid should be given in prePid.
 
+11. Owner or Owner's master (see FEIP6_Master) can [Close](#close) the protocol and giving a closing statement.
+
+12. A closed protocol can never be operated again.
+
 ## Publish
 
-Publish a protocol by send a transaction, the OP_RETURN of which contains the data as follows:
+Publish a protocol by send a transaction, the OP_RETURN of which contains the data as following:
 
 
 |field number|field name|type|content|required|
@@ -96,7 +87,7 @@ Publish a protocol by send a transaction, the OP_RETURN of which contains the da
 |2|sn|int|Fixed: 1|Y|
 |3|ver|int|Fixed: 7|Y|
 |4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
-|5|pid|string|Double sha256 of this file|N|
+|5|pid|string|The PID of this protocol|N|
 |6|data.type|String|Type of the protocol being published.|N|
 |7|data.sn|String|Serial number of the protocol being published, counting from 1.|N|
 |8|data.ver|String|Version number of the protocol being published. counting from 1.|N|
@@ -110,6 +101,7 @@ Publish a protocol by send a transaction, the OP_RETURN of which contains the da
 |16|data.fileUrls|String array|Locations to find the protocol file.|N|
 
 **Publish Example:**
+
 ```
 {
     "type": "FEIP",
@@ -133,7 +125,7 @@ Publish a protocol by send a transaction, the OP_RETURN of which contains the da
 }
 ```
 ## Update
-Update a protocol by send a transaction. The data.op is changed from "publish" to "update", other data formats are the same as the publish data format. All field contents will be updated.
+Update a protocol by send a transaction. All field contents will be updated.
 
 |field number|field name|type|content|required|
 |:----|:----|:----|:----|:----|
@@ -141,7 +133,7 @@ Update a protocol by send a transaction. The data.op is changed from "publish" t
 |2|sn|int|Fixed: 1|Y|
 |3|ver|int|Fixed: 7|Y|
 |4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
-|5|pid|string|Double sha256 of this file|N|
+|5|pid|string|The PID of this protocol|N|
 |6|data.type|String|Type of the protocol being published.|N|
 |7|data.sn|String|Serial number of the protocol being published, counting from 1.|N|
 |8|data.ver|String|Version number of the protocol being published. counting from 1.|N|
@@ -156,6 +148,7 @@ Update a protocol by send a transaction. The data.op is changed from "publish" t
 |17|data.fileUrls|String array|Locations to find the protocol file.|N|
 
 **Update Example:**
+
 ```
 {
     "type": "FEIP",
@@ -180,7 +173,7 @@ Update a protocol by send a transaction. The data.op is changed from "publish" t
 }
 ```
 ## Stop
-Stop a protocol by send a transaction, the OP_RETURN of which contains the data as follows:
+Stop a protocol by send a transaction, the OP_RETURN of which contains the data as following:
 
 |field number|field name|type|content|required|
 |:----|:----|:----|:----|:----|
@@ -188,11 +181,12 @@ Stop a protocol by send a transaction, the OP_RETURN of which contains the data 
 |2|sn|int|Fixed: 1|Y|
 |3|ver|int|Fixed: 7|Y|
 |4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
-|5|pid|string|Double sha256 of this file|N|
+|5|pid|string|The PID of this protocol|N|
 |6|data.pid|string|The txid in which the protocol was published.|Y|
 |7|data.op|String|Fixed: "stop"|Y|
 
 **Stop Example:**
+
 ```
 {
     "type": "FEIP",
@@ -208,7 +202,8 @@ Stop a protocol by send a transaction, the OP_RETURN of which contains the data 
 
 ```
 ## Recover
-Recover a protocol by send a transaction, the OP_RETURN of which contains the data as follows:
+
+Recover a protocol by send a transaction, the OP_RETURN of which contains the data as following:
 
 |field number|field name|type|content|required|
 |:----|:----|:----|:----|:----|
@@ -216,11 +211,12 @@ Recover a protocol by send a transaction, the OP_RETURN of which contains the da
 |2|sn|int|Fixed: 1|Y|
 |3|ver|int|Fixed: 7|Y|
 |4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
-|5|pid|string|Double sha256 of this file|N|
+|5|pid|string|The PID of this protocol|N|
 |6|data.pid|string|The txid in which the protocol was published.|Y|
 |7|data.op|String|Fixed: "recover"|Y|
 
-**Stop Example:**
+**Recover Example:**
+
 ```
 {
     "type": "FEIP",
@@ -236,9 +232,9 @@ Recover a protocol by send a transaction, the OP_RETURN of which contains the da
 
 ```
 
-## Rate
+## Close
 
-Evaluate a protocol by send a transaction, the OP_RETURN of which contains the data as follows:
+Close a protocol permanently by send a transaction, the OP_RETURN of which contains the data as following:
 
 |field number|field name|type|content|required|
 |:----|:----|:----|:----|:----|
@@ -246,12 +242,45 @@ Evaluate a protocol by send a transaction, the OP_RETURN of which contains the d
 |2|sn|int|Fixed: 1|Y|
 |3|ver|int|Fixed: 7|Y|
 |4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
-|5|pid|string|Double sha256 of this file|N|
+|5|pid|string|The PID of this protocol|N|
+|6|data.pid|string|The txid in which the protocol was published.|Y|
+|7|data.op|String|Fixed: "close"|Y|
+|8|data.closeStatement|String|Fixed: "close"|Y|
+
+**Stop Example:**
+
+```
+{
+    "type": "FEIP",
+    "sn": 1,
+    "ver": 7,
+    "name": "FreeProtocol",
+    "pid": "",
+    "data": {
+        "pid": "c50d307c3ac0c193dad6c671ad3cebb881c01c747e03abfeaecc378419739ff4",
+        "op": "stop"
+    }
+}
+
+```
+
+## Rate
+
+Evaluate a protocol by send a transaction, the OP_RETURN of which contains the data as following:
+
+|field number|field name|type|content|required|
+|:----|:----|:----|:----|:----|
+|1|type|String|Fixed: "FEIP". Case insensitive|Y|
+|2|sn|int|Fixed: 1|Y|
+|3|ver|int|Fixed: 7|Y|
+|4|name|String|Fixed:"FreeProtocol". Case insensitive|N|
+|5|pid|string|The PID of this protocol|N|
 |6|data.pid|string|The txid in which the protocol was published.|Y|
 |7|data.op|String|Fixed: "rate"|Y|
 |8|data.rate|int|Score of rating from 0 to 5|Y|
 
 **Rate Example:**
+
 ```
 {
     "type": "FEIP",
