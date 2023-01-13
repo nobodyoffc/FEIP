@@ -260,7 +260,7 @@ The owner or its master close a protocol permanently, the OP_RETURN of which con
     "pid": "",
     "data": {
         "pid": "c50d307c3ac0c193dad6c671ad3cebb881c01c747e03abfeaecc378419739ff4",
-        "op": "stop"
+        "op": "close"
     }
 }
 
