@@ -46,6 +46,8 @@ Update date：2023-01-10
 
 5. Encoding : utf-8.
 
+6. Since block height `2000000`, any operation of writing to freecash blockchain needs more than `1cd` consumed.
+
 ## Consensus of this protocol
 
 1. This protocol is used to publish protocol information on Freecash blockchain. 
@@ -234,7 +236,7 @@ Recover a protocol by send a transaction, the OP_RETURN of which contains the da
 
 ## Close
 
-Close a protocol permanently by send a transaction, the OP_RETURN of which contains the data as following:
+The owner or its master close a protocol permanently, the OP_RETURN of which contains the data as following:
 
 |field number|field name|type|content|required|
 |:----|:----|:----|:----|:----|

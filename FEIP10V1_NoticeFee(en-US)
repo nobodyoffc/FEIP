@@ -39,6 +39,8 @@ Last modified date：2023-01-11
 
 5. Encoding : utf-8.
 
+6. Since block height `2000000`, any operation of writing to freecash blockchain needs more than `1cd` consumed.
+
 ## Consensus of this protocol
 
 1. Notice fee is the minimum payment amount that an address is willing to receive on-chain message notifications. It is used to avoid spam message.

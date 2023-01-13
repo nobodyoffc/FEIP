@@ -43,6 +43,8 @@ Last modified date：2023-01-02
 
 5. Encoding : utf-8.
 
+6. Since block height `2000000`, any operation of writing to freecash blockchain needs more than `1cd` consumed.
+
 ## Consensus of this protocol
 
 1. Everyone can create groups. The creator has no privilege.
@@ -51,7 +53,7 @@ Last modified date：2023-01-02
 4. Any active member of a group can update the 'name' and 'desc' of the group with consuming CoinDays more than last update operation consumed.
 5. Everyone can join any group or leave any group it belonging to.
 6. All CDD of operations will be added to 'tCdd' which indicates the hot of the group.
-7. Since block height `2000000`, `publish` App needs more than `100cd` consumed and all other operations need more than `1cd` consumed.
+7. Since block height `2000000`, creating group needs more than `100cd` consumed.
 
 
 ## Create

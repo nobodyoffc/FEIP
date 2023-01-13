@@ -64,6 +64,9 @@ Last modified date：2023-01-05
 
 5. Encoding : utf-8.
 
+6. Since block height `2000000`, any operation of writing to freecash blockchain needs more than `1cd` consumed.
+
+
 ## Consensus of this protocol
 
 1. This protocol is used to create and manage teams on freecash blockchain.
@@ -93,7 +96,7 @@ Last modified date：2023-01-05
 25. Anyone but the owner can [rate](#rate-a-team) team with score of 0, 1, 2, 3, 4, or 5 and more than `1cd` consumed.
 26. The total score(`tRate`) of a team is the cdd weighted average of all ratings to the team.
 27. The disbanded team still can be rated.
-28. Since block height `2000000`, `create` team needs more than `100cd` consumed and all other operations need more than `1cd` consumed.
+28. Since block height `2000000`, `create` team needs more than `100cd` consumed.
 
 ## Create a team
 Send a tx with the content of op_Return as following:
