@@ -8,17 +8,17 @@
 
 [consensus of this protocol](#consensus-of-this-protocol)
 
-[Publish code](#publish-code)
+[Publish](#publish)
 
-[Update code](#update-code)
+[Update](#update)
 
-[Stop code](#stop-code)
+[Stop](#stop)
 
-[Recover code](#recover-code)
+[Recover](#recover)
 
-[Close code](#close-code)
+[Close](#close)
 
-[Rate code](#rate-code)
+[Rate](#rate)
 
 [QR code](#qr-code)
 
@@ -70,7 +70,7 @@ Last modified date：2023-01-10
 
 9. A closed code can never be operated again.
 
-## Publish code
+## Publish
 The publisher sends a tx with the content op_Return as following:
 
 |field number|field name|type|content|required|
@@ -90,7 +90,7 @@ The publisher sends a tx with the content op_Return as following:
 |13|data.protocols|string array|The protocols followed by this code|N|
 |14|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this code|
 
-### Example of publishing a code
+*  Example of publishing a code
 ```
 {
     "type": "FEIP",
@@ -114,7 +114,7 @@ The publisher sends a tx with the content op_Return as following:
 The txid is : 28e85989ce7e3bba56c8179d6dd9b180b23ff48a4ad031c72539d02750659212. It's also coid of the published code。
 
 
-## update code
+## Update
 
 The publisher of a code updates the code information. All fields will be replaced together.
 
@@ -136,7 +136,8 @@ The publisher of a code updates the code information. All fields will be replace
 |14|data.protocols|string array|The protocols followed by this code|N|
 |15|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this code|
 
-### Example of updating a code
+*  Example of updating a code
+
 ```
 {
     "type": "FEIP",
@@ -159,7 +160,7 @@ The publisher of a code updates the code information. All fields will be replace
 }
 ```
 
-## Stop code
+## Stop
 
 The owner stops maintaining a code as following:
 
@@ -173,7 +174,7 @@ The owner stops maintaining a code as following:
 |6|data.coid|hex|Txid when the code was published|Y|
 |7|data.op|string|Operation: "stop"|Y|
 
-### Example of stoping a code
+*  Example of stoping a code
 
 ```
 {
@@ -188,7 +189,7 @@ The owner stops maintaining a code as following:
     }
 }
 ```
-## Recover code
+## Recover
 
 The owner recovers a Stopped code as following:
 
@@ -202,7 +203,7 @@ The owner recovers a Stopped code as following:
 |6|data.coid|hex|Txid when the code was published|Y|
 |7|data.op|string|Operation: "recover"|Y|
 
-### Example of stoping a code
+*  Example of stoping a code
 
 ```
 {
@@ -232,7 +233,8 @@ The owner or its master close a code permanently, the OP_RETURN of which contain
 |6|data.coid|hex|Txid when the code was published|Y|
 |7|data.op|string|Operation: "close"|Y|
 
-**Example of closing a code:**
+* Example of closing a code:
+
 ```
 {
     "type": "FEIP",
@@ -247,7 +249,7 @@ The owner or its master close a code permanently, the OP_RETURN of which contain
 }
 ```
 
-## Rate code
+## Rate
 
 Anyone but the owner rate a published code as following:
 
@@ -263,7 +265,8 @@ Anyone but the owner rate a published code as following:
 |7|data.op|string|operation: "rate"|Y|
 |8|data.rate|int|Score of rating from 0 to 5|N|
 
-### Example of rate a code
+*  Example of rate a code
+
 ```
 {
     "type": "FEIP",

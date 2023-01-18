@@ -68,7 +68,8 @@ The OP_RETURN of which contains the data as follows:
 |6|data.op|string|operation: "register" |Y|
 |7|data.homepages|string array|512|URLs of the homepages|Y|
 
-### Example
+* Example
+
 ```
 
 {
@@ -96,7 +97,8 @@ The OP_RETURN of which contains the data as follows:
 |5|pid|string|The PID of this protocol|N|
 |6|data.op|string|operation: "unregister" |Y|
 
-### Example
+* Example
+
 ```
 {
     "type": "FEIP",

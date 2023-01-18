@@ -8,9 +8,8 @@
 
 [Consensus of this protocol](#consensus-of-this-protocol)
 
-[OP RETURN](#op-return)
+[Authorize](#authorize)
 
-[Example of an authorization](#example-of-an-authorization)
 
 
 ## Summary
@@ -53,7 +52,7 @@ Last modified date：2023-01-13
 4. An address can only implement a valid master authorization once, and subsequent authorizations are invalid.
 
 
-## OP_RETURN
+## Authorize
 
 The OP_RETURN of which contains the data as following:
 
@@ -63,7 +62,7 @@ The OP_RETURN of which contains the data as following:
 |2|sn|int|Fixed: 6|Y|
 |3|ver|int|Fixed: 6|Y|
 |4|name|string|Fixed: "Master"|Y|
-|5|pid|hex|Sha256 value of this file|N|
+|5|pid|hex|The PID of this protocol|N|
 |6|data.master|string|The address designated as the master.|Y|
 |7|data.promise|string|Fixed:"The master owns all my rights."|Y|
 

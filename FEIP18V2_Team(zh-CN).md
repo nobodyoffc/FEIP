@@ -34,7 +34,7 @@
 
 [Cancel appointment](#cancel-appointment)
 
-[Rate](#rate)
+[Rate](#rate-a-team)
 
 [QR code](#qr-code)
 
@@ -78,14 +78,14 @@ Last modified date：2023-01-05
 7. Only owner can [disband](#disband-a-team) the team. Once a team was disbanded, it can't be recover forever.
 8. Team consensus is published by the owner. `consensusHash` is the double sha256 value of the consensus.
 9. Team consensus is accepted by all members when they [`join`](#join-a-team) the team.
-10. Only owner can [update](#update team information) the "stdName", "localNames", "desc", and "consensusHash" of the team. 
+10. Only owner can [update](#update-team-information) the "stdName", "localNames", "desc", and "consensusHash" of the team. 
 11. `consensusHash` can be updated but can't be deleted.
 12. If the "consensusHash" was updated, it's necessary for all members to [agree](#agree-new-consensus) the new consensus.
 13. The owner can [transfer](#transfer-a-team) the team to a `transferee`.
-14. Transferee can [take over](#take over-a-team) the team which also means that the transferee accepts the current team consensus.
+14. Transferee can [take over](#take-over-a-team) the team which also means that the transferee accepts the current team consensus.
 15. Before `take over` operation, a new `transfer` operation cancels the early one. So, owner can transfer team to itself to cancel unaccepted transfering.
 16. The master (see "FEIP6_Master") of owner can transfer the team in case of the owner losing its private key.
-17. Owner can [appoint](#appoint-administrator) some active members as administrators and also [cancel appointment](#cancel appointment-administrator) them.
+17. Owner can [appoint](#appoint-administrator) some active members as administrators and also [Cancel appointment](#cancel-appointment) them.
 18. `Owner` is inborn active member and administrator of the team, and can not be dismissed or cancel appointment unless that it succesfully transfered the team to others.
 19. Administrator can [invite](#invite-members) others to join the team.
 20. Only invitees can [join](#join-a-team) the team which also means that they accepted the current team consensus.
@@ -148,6 +148,7 @@ Send a tx with the content of op_Return as following:
 |7|data.tid|String|Team ID|Y|
 
 * Example of disbanding a team
+
 ```
 {
     "type": "FEIP",
@@ -178,6 +179,7 @@ Send a tx with the content of op_Return as following:
 |9|data.confirm|String|Fixed:"I transfer the team to the transferee."|Y|
 
 * Example of transferring a team
+
 ```
 {
     "type": "FEIP",
@@ -209,6 +211,7 @@ Send a tx with the content of op_Return as following:
 |8|data.confirm|String|Fixed:"I take over the team and agree with the team consensus."|Y|
 
 * Example of taking over a team
+
 ```
 {
     "type": "FEIP",
@@ -225,7 +228,8 @@ Send a tx with the content of op_Return as following:
 }
 ```
 
-## Update team consensus or description
+## Update team information
+
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -265,6 +269,7 @@ consensus: test update.
 ```
 
 ## Agree new consensus
+
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -282,6 +287,7 @@ Send a tx with the content of op_Return as following:
 
 
 * Example of agreeing new consensus
+
 ```
 {
     "type": "FEIP",
@@ -313,6 +319,7 @@ Send a tx with the content of op_Return as following:
 |8|data.list|String array|Addresses of the applicants.|Y|
 
 * Example of adding members
+
 ```
 {
     "type": "FEIP",
@@ -346,6 +353,7 @@ Send a tx with the content of op_Return as following:
 |8|data.list|String array|Addresses.|Y|
 
 * Example of withdrawing invitation
+
 ```
 {
     "type": "FEIP",
@@ -363,6 +371,7 @@ Send a tx with the content of op_Return as following:
     }
 }
 ```
+
 ## Join a team
 Send a tx with the content of op_Return as following:
 
@@ -529,7 +538,7 @@ Send a tx with the content of op_Return as following:
 }
 ```
 
-## Rate
+## Rate a team
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -544,6 +553,7 @@ Send a tx with the content of op_Return as following:
 |8|data.rate|int|Rating of the service from 0 to 5|Y|
 
 ### Example of rating a team
+
 ```
 {
     "type": "FEIP",
@@ -558,7 +568,6 @@ Send a tx with the content of op_Return as following:
     }
 }
 ```
----
 
 ## QR code
 

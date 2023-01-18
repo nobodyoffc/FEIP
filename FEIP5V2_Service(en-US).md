@@ -8,17 +8,17 @@
 
 [consensus of this protocol](#consensus-of-this-protocol)
 
-[Publish a service](#publish-a-service)
+[Publish a service](#publish)
 
-[Stop a service](#stop-a-service)
+[Stop](#stop)
 
-[Recover a service](#recover-a-service)
+[Recover](#recover)
 
-[Update a service](#update-a-service)
+[Update](#update)
 
-[Close a service](#close-a-service)
+[Close](#close)
 
-[Rate a service](#rate-a-service)
+[Rate](#rate)
 
 [QR code](#qr-code)
 
@@ -71,7 +71,7 @@ Last modified date：2023-01-10
 
 9. A closed service can never be operated again.
 
-## Publish a service
+## Publish
 
 To publish protocol, one can send a tx with the content of op_return as following:
 
@@ -92,7 +92,8 @@ To publish protocol, one can send a tx with the content of op_return as followin
 |13|data.protocols|string array|The protocols followed by this service|N|
 |14|data.params|structure|Parameters customized by the service provider.|N|
 
-### Example of publishing a service
+* Example of publishing a service
+
 ```
 {
 	"type": "FEIP",
@@ -119,7 +120,8 @@ To publish protocol, one can send a tx with the content of op_return as followin
 	}
 }
 ```
-## Stop a service
+## Stop
+
 The publisher of the protocol sends a tx with the content of op_return as following:
 
 |field number|field name|type|content|required|
@@ -132,7 +134,8 @@ The publisher of the protocol sends a tx with the content of op_return as follow
 |6|data.sid|hex|Txid when publishing the service|Y|
 |7|data.op|string|operation: "stop"|Y|
 
-### Example of stopping a service
+* Example of stopping a service
+
 ```
 {
     "type": "FEIP",
@@ -146,7 +149,8 @@ The publisher of the protocol sends a tx with the content of op_return as follow
     }
 }
 ```
-## Recover a service
+## Recover
+
 The publisher of the protocol send a tx with the content of op_return as following:
 
 |field number|field name|type|content|required|
@@ -159,7 +163,8 @@ The publisher of the protocol send a tx with the content of op_return as followi
 |6|data.sid|hex|Txid when publishing the service|Y|
 |7|data.op|string|operation: "recover"|Y|
 
-### Example of recovering a Service
+* Example of recovering a Service
+
 ```
 {
     "type": "FEIP",
@@ -173,7 +178,8 @@ The publisher of the protocol send a tx with the content of op_return as followi
     }
 }
 ```
-## Update a service
+## Update
+
 The publisher of the protocol sends a tx with the content of op_return as following:
 
 |field number|field name|type|content|required|
@@ -193,7 +199,9 @@ The publisher of the protocol sends a tx with the content of op_return as follow
 |13|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher for this service|N|
 |14|data.protocols|string array|The protocols followed by this service|N|
 |15|data.params|structure|Parameters customized by the service provider.|N|
-### Example of updating a Service
+
+* Example of updating a Service
+
 ```
 {
     "type": "FEIP",
@@ -222,7 +230,8 @@ The publisher of the protocol sends a tx with the content of op_return as follow
 }
 ```
 
-## Close a service
+## Close
+
 The publisher or its master can close the service by sending a tx with the content of op_return as following:
 
 |field number|field name|type|content|required|
@@ -235,7 +244,8 @@ The publisher or its master can close the service by sending a tx with the conte
 |6|data.sid|hex|Txid when publishing the service|Y|
 |7|data.op|string|operation: "close"|Y|
 
-### Example of recovering a Service
+* Example of recovering a Service
+
 ```
 {
     "type": "FEIP",
@@ -250,7 +260,7 @@ The publisher or its master can close the service by sending a tx with the conte
 }
 ```
 
-## Rate a service
+## Rate
 Anyone but the publisher of the protocol sends a tx with the content of op_return as following:
 
 |field number|field name|type|content|required|
@@ -264,7 +274,8 @@ Anyone but the publisher of the protocol sends a tx with the content of op_retur
 |7|data.op|string|operation: "rate"|Y|
 |8|data.rate|int|Score of rating from 0 to 5|Y|
 
-### Example of Rating a Service
+* Example of Rating a Service
+
 ```
 {
     "type": "FEIP",

@@ -8,7 +8,7 @@
 
 [Consensus of this protocol](#consensus-of-this-protocol)
 
-[Make a statement](#Make-a-statement)
+[Publish a statement](#publish-a-statement)
 
 ## Summary
 
@@ -64,7 +64,8 @@ The OP_RETURN of which contains the data as follows:
 |7|data.content|string|the content of statement |Y|
 |8|data.confirm|string|Fixed: "This is a formal and irrevocable statement."|Y|
 
-### Example
+* Example
+
 ```
 {
 	"type": "FEIP",

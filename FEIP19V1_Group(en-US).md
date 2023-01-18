@@ -70,7 +70,8 @@ Send a tx with the content of op_Return as following:
 |7|data.name|String|Group name|Y|
 |8|data.desc|String|Description of this group|Y|
 
-### Example of creating a group
+* Example of creating a group
+
 ```
 {
     "type": "FEIP",
@@ -86,7 +87,7 @@ Send a tx with the content of op_Return as following:
 }
 ```
 
-## Update group information
+## Update
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -101,7 +102,8 @@ Send a tx with the content of op_Return as following:
 |8|data.name|String|Group name|Y|
 |9|data.desc|String|Description of this group|Y|
 
-### Example of updating group information
+* Example of updating group information
+
 ```
 {
     "type": "FEIP",
@@ -119,6 +121,7 @@ Send a tx with the content of op_Return as following:
 ```
 
 ## Join
+
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -131,7 +134,8 @@ Send a tx with the content of op_Return as following:
 |6|data.op|String|operation: "join"|Y|
 |7|data.gid|String|Group ID|Y|
 
-### Example of joining in a group
+* Example of joining in a group
+
 ```
 {
     "type": "FEIP",
@@ -147,6 +151,7 @@ Send a tx with the content of op_Return as following:
 ```
 
 ## Leave
+
 Send a tx with the content of op_Return as following:
 
 |field number|field name|type|content|required|
@@ -159,7 +164,8 @@ Send a tx with the content of op_Return as following:
 |6|data.op|String|operation: "leave"|Y|
 |7|data.gid|String|Group ID|Y|
 
-### Example of leaving a group
+* Example of leaving a group
+
 ```
 {
     "type": "FEIP",
@@ -174,7 +180,9 @@ Send a tx with the content of op_Return as following:
 }
 ```
 ## QR code
+
 The QR code of a published group has fields as following:
+
 ```
 {
 	"meta":"FC",

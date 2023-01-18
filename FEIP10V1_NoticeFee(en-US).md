@@ -2,16 +2,16 @@
 
 ## Contents
 
-[Introduction](#introduction)
+[Summary](#summary)
 
-[General rules of FEIP type protocols](#general-rules-of-feip-type-protocols)
+[General consensus of FEIP](#general-consensus-of-feip)
 
-[Rules specific to this protocol](#rules-specific-to-this-protocol)
+[Consensus of this protocol](#consensus-of-this-protocol)
 
 [Declare](#declare)
 
 
-## Introduction
+## Summary
 
 ```
 

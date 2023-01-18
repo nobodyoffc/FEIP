@@ -10,8 +10,6 @@
 
 [Abandon](#abandon)
 
-[Example](#example)
-
 ## Summary
 
 ```
@@ -56,8 +54,10 @@ Last modified date：2023-01-13
 |5|pid|string|The PID of this protocol|N|
 |6|data.priKey|string|The private key of the signer.|Y|
 
-## Example
+* Example
+
 FEk41Kqjar45fLDriztUDTUkdki7mmcjWK Abandon its all rights.
+
 ```
 {
     "type": "FEIP",

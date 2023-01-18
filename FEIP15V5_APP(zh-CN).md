@@ -8,19 +8,17 @@
 
 [consensus of this protocol](#consensus-of-this-protocol)
 
-[Process](#process)
+[Publish](#publish)
 
-[Publish APP](#publish-APP)
+[Update](#update)
 
-[Update APP](#update-APP)
+[Stop](#stop)
 
-[Stop APP](#stop-APP)
+[Recover](#recover)
 
-[Recover APP](#recover-APP)
+[Close](#close)
 
-[Close APP](#close-APP)
-
-[Rate APP](#rate-APP)
+[Rate](#rate)
 
 [QR code](#qr-code)
 
@@ -72,7 +70,7 @@ Last modified date：2023-01-10
 
 9. A closed APP can never be operated again.
 
-## Publish APP
+## Publish
 
 The publisher send a tx with the content op_Return as following:
 
@@ -89,12 +87,23 @@ The publisher send a tx with the content op_Return as following:
 |9|data.desc|string|Description of this APP|N|
 |10|data.types|string array|The types of the App|N|
 |11|data.urls|string array|URLs，the locations to get the APP|N|
-|12|data.protocols|string array|The protocols followed by this APP|N|
-|13|data.services|string array|The services used by this APP|N|
-|14|data.codes|string array|The codes used by this APP|N|
-|15|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this APP|
+|12|data.downloads|object array|Download information: os,link,hash. see below.|N|
+|13|data.protocols|string array|The PIDs of the protocols followed by this APP|N|
+|14|data.services|string array|The SIDs of the services used by this APP|N|
+|15|data.codes|string array|The COIDs of the codes used by this APP|N|
+|16|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this APP|
 
-### Example of creating an APP
+
+data.downloads:
+|field number|field name|type|content|required|
+|:----|:----|:----|:----|:----|
+|1|os|String|The name of OS|N|
+|2|link|String|The link to download installing file|N|
+|3|hash|String|Double SHA256 hash value of the installing file|N|
+
+
+* Example of creating an APP
+
 ```
 {
     "type": "FEIP",
@@ -104,11 +113,17 @@ The publisher send a tx with the content op_Return as following:
     "pid": "",
     "data":{
         "op":"publish",
-        "stdName": "Sign Cash",
+        "stdName": "Signer",
         "localNames": ["飞签","フライング宝くじ"],
         "desc": "Save the private key offline and provide offline signature，and provide other functions.",
 		"types":["signer"],
-        "urls": ["https://sign.cash/download/cryptosigner"],
+        "urls": ["https://sign.cash"],
+        "downloads":[{
+			"os":"android",
+			"link":"https://sign.cash/download/cryptosigner",
+			"hash":"2d45fda951ed5c6d621a38266e327ed64e6e582e83ddb8dba3f243caeecdaa8e"
+		}
+		],
         "protocols":["b1674191a88ec5cdd733e4240a81803105dc412d6c6708d53ab94fc248f4f553","37406e3e45750efccdb060ca2e748f9f026aebb7dadade8e8747340f380edaca"],
         "services":["c86e039f466434862585e38c0fd1a11f47dcc07839647a452424503b30f81b39","403d3146bdd1edbd8d71b01ffbad75972e07617971acb767a9bae150d4154dc25"],
         "codes":[""],
@@ -118,7 +133,7 @@ The publisher send a tx with the content op_Return as following:
 ```
 The txid is "b7af2d8c32e8c46159af450226065c898d473321b4096a14ca293c0f86888ee2". It's AID of this APP。
 
-## update APP
+## update
 
 The publisher of an APP can update the APP information. All fields will be replaced together.
 
@@ -135,13 +150,22 @@ The publisher of an APP can update the APP information. All fields will be repla
 |9|data.localNames|string array|APP names in different languages|N|
 |10|data.desc|string|Description of this APP|N|
 |11|data.types|string array|The types of the App|N|
-|12|data.urls|string|URLs，the locations to get the APP|N|
-|13|data.protocols|string array|The protocols followed by this APP|N|
-|14|data.services|string array|The services used by this APP|N|
-|15|data.codes|string array|The codes used by this APP|N|
-|16|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this APP|
+|12|data.urls|string array|URLs，the locations to get the APP|N|
+|13|data.downloads|object array|Download information: os,link,hash. see below.|N|
+|14|data.protocols|string array|The PIDs of the protocols followed by this APP|N|
+|15|data.services|string array|The SIDs of the services used by this APP|N|
+|16|data.codes|string array|The COIDs of the codes used by this APP|N|
+|17|data.pubKeyAdmin|hex|The public key of the FCH identity designated by the publisher of this APP|
 
-### Example of updating an APP
+data.downloads:
+|field number|field name|type|content|required|
+|:----|:----|:----|:----|:----|
+|1|os|String|The name of OS|N|
+|2|link|String|The link to download installing file|N|
+|3|hash|String|Double SHA256 hash value of the installing file|N|
+
+* Example of updating an APP
+
 ```
 {
     "type": "FEIP",
@@ -157,6 +181,12 @@ The publisher of an APP can update the APP information. All fields will be repla
 		"types":["construct","signer"],
         "desc": "Save the private key offline and provide offline signature，and provide other functions.",
         "urls": ["https://sign.cash"],
+        "downloads":[{
+			"os":"android",
+			"link":"https://sign.cash/download/cryptosigner",
+			"hash":"2d45fda951ed5c6d621a38266e327ed64e6e582e83ddb8dba3f243caeecdaa8e"
+		}
+		],
         "protocols":["b1674191a88ec5cdd733e4240a81803105dc412d6c6708d53ab94fc248f4f553","37406e3e45750efccdb060ca2e748f9f026aebb7dadade8e8747340f380edaca"],
         "services":["c86e039f466434862585e38c0fd1a11f47dcc07839647a452424503b30f81b39","403d3146bdd1edbd8d71b01ffbad75972e07617971acb767a9bae150d4154dc25"],
 		"codes":[""],
@@ -165,7 +195,7 @@ The publisher of an APP can update the APP information. All fields will be repla
 }
 ```
 
-## Stop APP
+## Stop
 
 The owner can stop maintaining an APP as following:
 
@@ -179,7 +209,7 @@ The owner can stop maintaining an APP as following:
 |6|data.aid|hex|Txid when publishing the APP|Y|
 |7|data.op|string|Operation: "stop"|Y|
 
-### Example of stoping an APP
+* Example of stoping an APP
 
 ```
 {
@@ -194,7 +224,7 @@ The owner can stop maintaining an APP as following:
     }
 }
 ```
-## Recover APP
+## Recover
 
 The owner can recover a Stopped APP as following:
 
@@ -208,7 +238,7 @@ The owner can recover a Stopped APP as following:
 |6|data.aid|hex|Txid when publishing the APP|Y|
 |7|data.op|string|Operation: "recover"|Y|
 
-### Example of stoping an APP
+* Example of stoping an APP
 
 ```
 {
@@ -224,7 +254,7 @@ The owner can recover a Stopped APP as following:
 }
 ```
 
-## Close APP
+## Close
 
 The owner or its master can close a Stopped APP as following:
 
@@ -254,7 +284,7 @@ The owner or its master can close a Stopped APP as following:
 }
 ```
 
-## Rate APP
+## Rate
 
 Anyone but the owner can rate a published APP.
 

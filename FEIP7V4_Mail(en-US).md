@@ -69,7 +69,7 @@ When user sends a new item, the OP_RETURN contains the data as follows:
 |9|data.ciphertextReci|string|mail encrypted with the public key of the recipient|Y|
 |10|data.textHash|string|Double sha256 hash value of the plain text of the mail|Y|
 
-### Example for sending a mail
+* Example for sending a mail
 
 Sender:
 The address of first input: FEk41Kqjar45fLDriztUDTUkdki7mmcjWK
@@ -82,6 +82,7 @@ Public key: 5XEV28ubXGx9Y3sLgQCUvbbE8bJe4tB3xWvY4HanoQeGxmbn3x
 Private key: L5DDxf3PkFwi1jArqYokpTsntthLvhDYg44FXyTSgdTx3XEFR1iB
 
 OP_RETURN content:
+
 ```
 {
 	"type": "FEIP",
@@ -112,7 +113,8 @@ When the sender deletes a mail, the OP_RETURN contains the data as follows:
 |6|data.op|string|fixed:"delete"|Y|
 |7|data.sendTxid|string|The txid in which the mail was sent.|Y|
 
-### Example for deleting a mail
+* Example for deleting a mail
+
 ```
 {
     "type": "FEIP",
@@ -141,7 +143,8 @@ When the sender recovers a deleted item, the OP_RETURN contains the data as foll
 |6|data.op|string|fixed:"recover"|Y|
 |7|data.sendTxid|string|The txid in which the mail was sent.|Y|
 
-### Example for recovering a mail
+* Example for recovering a mail
+
 ```
 {
     "type": "FEIP",

@@ -2,19 +2,17 @@
 
 ## Contents
 
-[Introduction](#introduction)
+[Summary](#summary)
 
-[General rules of FEIP type protocols](#general-rules-of-feip-type-protocols)
+[General consensus of FEIP](#general-consensus-of-feip)
 
-[Rules specific to this protocol](#rules-specific-to-this-protocol)
+[Consensus of this protocol](#consensus-of-this-protocol)
 
-[OP_RETURN](#op-return)
+[Register](#register)
 
-[Example of Registering a CID](#example-of-registering-a-cid)
+[Unregister](#unregister)
 
-[Example of Unregistering a CID](#example-of-unregistering-a-cid)
-
-## Introduction
+## Summary
 
 ```
 
@@ -60,7 +58,7 @@ Last modified date：2023-01-11
 
 7. One address can only occupy up to 4 CIDs.
 
-## OP_RETURN
+## Register
 
 The OP_RETURN of which contains the data as follows:
 
@@ -70,16 +68,14 @@ The OP_RETURN of which contains the data as follows:
 |2|sn|int|Serial number<br>Fixed: 3|Y|
 |3|ver|int|Fixed: 4|Y|
 |4|name|String|Fixed: "CID"|N|
-|5|pid|hex|Sha256 value of this protocol file|N|
-|6|data.op|string|operation: "register" or "unregister"|Y|
+|5|pid|hex|The PID of this protocol|N|
+|6|data.op|string|operation: "register"|Y|
 |7|data.name|string|Nick name given by the user|Y when operation is register,<br>N when operation is unregister|
 
 
-## Example of Registering a CID
+* Example of registering a CID
+
 ```
-Address: FPL44YJRwPdd2ipziFvqq6y2tw4VnVvpAv
-CID：CY_vpAv
-OP_RETURN content:
 
 {
     "type": "FEIP",
@@ -93,13 +89,22 @@ OP_RETURN content:
         }
 }
 ```
+## Unregister
 
-## Example of Unregistering a CID
+The OP_RETURN of which contains the data as follows:
+
+|field number|field name|type|content|required|
+|:----|:----|:----|:----|:----|
+|1|type|String|Fixed: "FEIP"|Y|
+|2|sn|int|Serial number<br>Fixed: 3|Y|
+|3|ver|int|Fixed: 4|Y|
+|4|name|String|Fixed: "CID"|N|
+|5|pid|hex|The PID of this protocol|N|
+|6|data.op|string|operation: "unregister"|Y|
+
+* Example of unregistering a CID
+
 ```
-
-Address: FPL44YJRwPdd2ipziFvqq6y2tw4VnVvpAv
-
-OP_RETURN content:
 
 {
     "type": "FEIP",
