@@ -224,7 +224,8 @@ The publisher of the protocol sends a tx with the content of op_return as follow
 			"currency": "fch",
 			"account": "FEk41Kqjar45fLDriztUDTUkdki7mmcjWK",
 			"pricePerRequest": "0.001",
-			"minPayment": "10"
+			"minPayment": "1",
+            "sessionDays": "365"
 		}
     }
 }

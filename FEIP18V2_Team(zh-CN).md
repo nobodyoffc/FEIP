@@ -1,4 +1,4 @@
-# FEIP28V2_Team(zh-CN)
+# FEIP18V2_Team(zh-CN)
 
 ## Contents
 
@@ -42,7 +42,7 @@
 ## Summary
 ```
 Protocol type: FEIP
-Serial number: 28
+Serial number: 18
 Protocol name: Team
 Version: 1
 Description : create and manage teams on freecash blockchain.
@@ -120,18 +120,18 @@ consensus：test
 
 ```
 {
-"type": "FEIP",
-"sn": 28,
-"ver": 1,
-"name": "Team",
-"pid": "",
-"data": {
-"op": "create",
-"stdName": "test",
-"localNames": ["测试", "テスト"],
-"consensusHash": "954d5a49fd70d9b8bcdb35d252267829957f7ef7fa6c74f88419bdc5e82209f4",
-"desc": "This is a test Team"
-}
+	"type": "FEIP",
+	"sn": 18,
+	"ver": 1,
+	"name": "Team",
+	"pid": "",
+	"data": {
+		"op": "create",
+		"stdName": "test",
+		"localNames": ["测试", "テスト"],
+		"consensusHash": "954d5a49fd70d9b8bcdb35d252267829957f7ef7fa6c74f88419bdc5e82209f4",
+		"desc": "This is a test Team"
+	}
 }
 ```
 ## Disband a team
@@ -152,13 +152,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "disband",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084"
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c"
     }
 }
 ```
@@ -183,13 +183,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "transfer",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
 "transferee":"FEk41Kqjar45fLDriztUDTUkdki7mmcjWK",
 "confirm":"I transfer the team to the transferee."
     }
@@ -215,13 +215,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "take over",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
 "confirm":"I take over the team and agree with the team consensus.",
 "consensusHash": "954d5a49fd70d9b8bcdb35d252267829957f7ef7fa6c74f88419bdc5e82209f4"
 }
@@ -253,13 +253,13 @@ consensus: test update.
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "update",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
 "stdName": "test update",
 "localNames": ["测试", "テスト"],
         "consensusHash": "371f7f3ec56330109962f9fb1220fa836ebe89f07ed38515391376ea8e90a1b4",
@@ -291,13 +291,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "agree consensus",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "consensusHash": "371f7f3ec56330109962f9fb1220fa836ebe89f07ed38515391376ea8e90a1b4",
 "confirm":"I agree with the new consensus."
     }
@@ -323,13 +323,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "invite",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "list": [
 "F86zoAvNaQxEuYyvQssV5WxEzapNaiDtTW",
 "F9pcRpps3T2iHuNGzU3k5b2kWKMRukZP1U"
@@ -357,13 +357,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "withdraw invitation",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "list": [
 "F9pcRpps3T2iHuNGzU3k5b2kWKMRukZP1U",
 "FFcY22BH2nyamDLdFWaDGwtKej9KdCKb51"
@@ -392,13 +392,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "join",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
 "confirm":"I join the team and agree with the team consensus.",
         "consensusHash": "954d5a49fd70d9b8bcdb35d252267829957f7ef7fa6c74f88419bdc5e82209f4"
     }
@@ -423,13 +423,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "leave",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084"
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c"
     }
 }
 ```
@@ -453,13 +453,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "dismiss",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "list": [
 "F86zoAvNaQxEuYyvQssV5WxEzapNaiDtTW",
 "FPL44YJRwPdd2ipziFvqq6y2tw4VnVvpAv",
@@ -487,13 +487,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "appoint",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "list": [
 "F86zoAvNaQxEuYyvQssV5WxEzapNaiDtTW",
 "FCG7ohMm8xZmhPEpE8Eni2ghiZT5ha9iJw",
@@ -522,13 +522,13 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
         "op": "cancel appointment",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "list": [
 "F86zoAvNaQxEuYyvQssV5WxEzapNaiDtTW",
 "FCG7ohMm8xZmhPEpE8Eni2ghiZT5ha9iJw",
@@ -557,12 +557,12 @@ Send a tx with the content of op_Return as following:
 ```
 {
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "name": "Team",
     "pid": "",
     "data":{
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084",
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c",
         "op": "rate",
         "rate": 4
     }
@@ -578,11 +578,11 @@ The QR code of a published team has fields as following:
 
     "meta":"FC",
     "type": "FEIP",
-    "sn": 28,
+    "sn": 18,
     "ver": 1,
     "data":{
         "stdName": "test",
-        "tid": "fdfc3e9ffbf47c4391a7710109dbf759b9fba2393d84115ef0b971ec828d4084"
+        "tid": "974df036a417f5f8ea4e0d028b22c02954be9d1c7953ab9035c4710b2a87756c"
     }
 }
 ```
